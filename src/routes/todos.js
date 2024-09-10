@@ -8,7 +8,7 @@ const express = require('express');
 const router = express.Router();
 
 const prisma = new PrismaClient();
-
+var last;
 // REMOVE TODO ITEMS BEGIN 
 const prepop = [
   { id: "feedfacefeedfacefeedface", title: '<a href="http://adaptable.io/docs/starters/express-prisma-mongo-starter#idea-2-deploy-a-code-update">Deploy a code update</a> by removing the banner message', done: false },
@@ -62,6 +62,11 @@ router.patch('/:id', asyncMiddleware(async (req, res) => {
   });
   res.json(updated);
 }));
-
-
+router.get("/reqs",(req,res)=>{
+  
+})
+router.get("/esp",(req,res)=>{
+  last = JSON.Stringify(req)
+  res.json(last);
+})
 module.exports = router;
